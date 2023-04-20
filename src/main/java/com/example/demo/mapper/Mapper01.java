@@ -62,5 +62,5 @@ public interface Mapper01 {
 	Employee updatEmployee(String lastName, String firstName, String notes, Integer id);
 	
 	@Insert("insert into Employees (lastName, firstName, notes) values (#{lastName}, #{firstName}, #{notes})")
-	void insertEmployee(String lastName, String firstName, String notes);
+	void insertEmployee(String lastName, String firstName, String notes); 
 }

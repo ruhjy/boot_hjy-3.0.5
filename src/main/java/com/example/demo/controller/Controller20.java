@@ -116,7 +116,7 @@ public class Controller20 {
 	@ResponseBody
 	@RequestMapping("/link112")
 	public String insert() {
-		mapper.insertEmployee("대만", "정대만", "농구");
+		mapper.insertEmployee("대만", "정대만", "농구"); 
 //		log.info("insertEmployee = {}", insertEmployee);
 		return "ok";
 	}
