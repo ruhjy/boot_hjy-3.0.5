@@ -105,22 +105,21 @@ public class Controller20 {
 		model.addAttribute("employee", employee);
 	}
 	
+	// ================================================================================
+	
 	@ResponseBody
 	@RequestMapping("/link111")
 	public String update() {
-		Employee updatEmployee = mapper.updatEmployee("백호", "강", "슬램덩크", 1);
-		log.info("updateEmployee = {}", updatEmployee);
+		mapper.updatEmployee("도", "깨비", "신", 2);
 		return "ok";
 	}
 	
 	@ResponseBody
 	@RequestMapping("/link112")
 	public String insert() {
-		mapper.insertEmployee("대만", "정대만", "농구"); 
+		mapper.insertEmployee("목", "감기", "에휴"); 
 //		log.info("insertEmployee = {}", insertEmployee);
 		return "ok";
 	}
-	
-	
 	
 }
