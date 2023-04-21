@@ -166,7 +166,7 @@ public class Controller19 {
 						@RequestParam("price") Double price,
 						@RequestParam("birth") LocalDate birth,
 						@RequestParam("inserted") LocalDateTime inserted) {
-
+		
 		String sql = "insert into MyTable32(name, age, price, birth, inserted) "
 				+ "values (?, ?, ?, ?, ?)";
 		try (
@@ -375,4 +375,5 @@ public class Controller19 {
 	private Connection getConnection() throws SQLException {
 		return DriverManager.getConnection(url, username, password);
 	}
+
 }

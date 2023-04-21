@@ -56,10 +56,13 @@ public interface Mapper01 {
 	@Select("select employeeid id, lastname, firstname, birthdate, photo, notes "
 			+ "from Employees where employeeid = #{id}")
 	Employee method14(Integer id);
+	
+	// =============================================================================================
+	
 //	update Employees set lastName = '백호', firstName = '강', notes = '슬램덩크' where EmployeeId = 9;
 	@Update("update Employees set lastName = #{lastName}, firstName = #{firstName}, notes=#{notes} "
 			+ "where EmployeeID = #{id}")
-	Employee updatEmployee(String lastName, String firstName, String notes, Integer id);
+	void updatEmployee(String lastName, String firstName, String notes, Integer id);
 	
 	@Insert("insert into Employees (lastName, firstName, notes) values (#{lastName}, #{firstName}, #{notes})")
 	void insertEmployee(String lastName, String firstName, String notes); 
