@@ -1,7 +1,5 @@
 package com.example.demo.controller;
 
-import java.util.*;
-
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 import org.springframework.ui.*;
@@ -68,45 +66,66 @@ public class Controller24 {
 		model.addAttribute("customer", customer);
 	}
 	
-	// ========================================================================
-
 	// 직원 조회 및 수정 코드 작성
+	// 경로 : /sub24/link7?id=5
 	@RequestMapping("/link7")
-	public void employees(Model model) {
-		List<Employee> employees = mapper.sql6();
-		model.addAttribute("employees", employees);
+	public void method7(@RequestParam Integer id, Model model) {
+		Employee employee = mapper.sql6(id);
+		model.addAttribute("employee", employee);
 	}
 	
+	// 경로 : /sub24/link8
+	// method : post
 	@RequestMapping("/link8")
-	public String editForm(@RequestParam Integer id, Model model) {
-		Employee employee = mapper.sql7(id);
-		model.addAttribute("employee", employee);
-		return "sub24/employee";
+	public void method8(@ModelAttribute Employee e) {
+		int cnt = mapper.sql7(e);
+		System.out.println(cnt + "개 행 수정됨");
 	}
 	
-	@RequestMapping("/link9")
-	public void edit(@RequestParam Integer id, Model model) {
-		Employee employee = mapper.sql7(id);
-		model.addAttribute("employee", employee);
-	}
 	
-	@RequestMapping("/link10")
-	public String editEmployee(@ModelAttribute Employee employee) {
-		int result = mapper.sql8(employee);
-		log.info("{} row(s) affected", result);
-		return "redirect:/sub24/link7";
-	}
 	
-	@RequestMapping(value = "/save", method = RequestMethod.GET)
-	public String saveForm() {
-		return "sub24/saveForm";
-	}
 	
-	@PostMapping("/save")
-	public String saveEmployee(@ModelAttribute Employee employee) {
-		int result = mapper.sql9(employee);
-		log.info("{} row(s) affected", result);
-		return "redirect:/sub24/link8?id=" + employee.getId();
-	}
 	
+	// ========================================================================
+	/*
+	 * // 직원 조회 및 수정 코드 작성
+	 * 
+	 * @RequestMapping("/link7")
+	 * public void employees(Model model) {
+	 * List<Employee> employees = mapper.sql6();
+	 * model.addAttribute("employees", employees);
+	 * }
+	 * 
+	 * @RequestMapping("/link8")
+	 * public String editForm(@RequestParam Integer id, Model model) {
+	 * Employee employee = mapper.sql7(id);
+	 * model.addAttribute("employee", employee);
+	 * return "sub24/employee";
+	 * }
+	 * 
+	 * @RequestMapping("/link9")
+	 * public void edit(@RequestParam Integer id, Model model) {
+	 * Employee employee = mapper.sql7(id);
+	 * model.addAttribute("employee", employee);
+	 * }
+	 * 
+	 * @RequestMapping("/link10")
+	 * public String editEmployee(@ModelAttribute Employee employee) {
+	 * int result = mapper.sql8(employee);
+	 * log.info("{} row(s) affected", result);
+	 * return "redirect:/sub24/link7";
+	 * }
+	 * 
+	 * @RequestMapping(value = "/save", method = RequestMethod.GET)
+	 * public String saveForm() {
+	 * return "sub24/saveForm";
+	 * }
+	 * 
+	 * @PostMapping("/save")
+	 * public String saveEmployee(@ModelAttribute Employee employee) {
+	 * int result = mapper.sql9(employee);
+	 * log.info("{} row(s) affected", result);
+	 * return "redirect:/sub24/link8?id=" + employee.getId();
+	 * }
+	 */
 }

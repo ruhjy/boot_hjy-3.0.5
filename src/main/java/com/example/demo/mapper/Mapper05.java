@@ -34,25 +34,58 @@ public interface Mapper05 {
 	Customer sql5(Integer id);
 	
 	@Select("select EmployeeID as id, LastName, FirstName, BirthDate, Photo, Notes "
-			+ "from Employees")
-	List<Employee> sql6();
-	
-	@Select("select EmployeeID as id, LastName, FirstName, BirthDate, Photo, Notes "
 			+ "from Employees where EmployeeID = #{id}")
-	Employee sql7(Integer id);
-
-	@Update("update Employees set "
-			+ "LastName = #{lastName}, "
-			+ "FirstName = #{firstName}, "
-			+ "BirthDate = #{birthDate}, "
-			+ "Photo = #{photo}, "
-			+ "Notes = #{notes} "
-			+ "where EmployeeID = #{id}")
-	int sql8(Employee employee);
+	Employee sql6(Integer id);
 	
-	@Insert("insert into Employees(LastName, FirstName, BirthDate, Photo, Notes) "
-			+ "values (#{lastName}, #{firstName}, #{birthDate}, #{photo}, #{notes})")
-	int sql9(Employee employee);
+	@Update("update Employees "
+			+ "set LastName = #{lastName}, "
+			+ "    FirstName = #{firstName}, "
+			+ "    Photo = #{photo}, "
+			+ "    Notes = #{notes}, "
+			+ "    BirthDate = #{birthDate} "
+			+ "where EmployeeID = #{id}")
+	int sql7(Employee e);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
+	 * @Select("select EmployeeID as id, LastName, FirstName, BirthDate, Photo, Notes "
+	 * + "from Employees")
+	 * List<Employee> sql6();
+	 * 
+	 * @Select("select EmployeeID as id, LastName, FirstName, BirthDate, Photo, Notes "
+	 * + "from Employees where EmployeeID = #{id}")
+	 * Employee sql7(Integer id);
+	 * 
+	 * @Update("update Employees set "
+	 * + "LastName = #{lastName}, "
+	 * + "FirstName = #{firstName}, "
+	 * + "BirthDate = #{birthDate}, "
+	 * + "Photo = #{photo}, "
+	 * + "Notes = #{notes} "
+	 * + "where EmployeeID = #{id}")
+	 * int sql8(Employee employee);
+	 * 
+	 * @Insert("insert into Employees(LastName, FirstName, BirthDate, Photo, Notes) "
+	 * + "values (#{lastName}, #{firstName}, #{birthDate}, #{photo}, #{notes})")
+	 * 
+	 * @Options(useGeneratedKeys = true, keyProperty = "id")
+	 * int sql9(Employee employee);
+	 */
 	
 	
 	

@@ -10,25 +10,31 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
-	<h1>직원 목록</h1>
-	<button class="btn btn-info" type="button" onclick="location.href='/sub24/save'">직원 등록</button>
-	<div class="container">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>이름</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${employees }" var="emp">
-					<tr>
-						<td><a href="/sub24/link8?id=${emp.id }">${emp.id }</a></td>
-						<td><a href="/sub24/link8?id=${emp.id }">${emp.firstName } ${emp.lastName }</a></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+	<h1>${employee.id }번 직원 수정</h1>
+	<div>
+		<form action="/sub24/link8" method="post">
+		<div>
+			<input type="hidden" name="id" value="${employee.id }" />
+		</div>
+		<div>
+			LastName <input type="text" name="lastName" value="${employee.lastName }" />
+		</div>
+		<div>
+			FirstName <input type="text" name="firstName" value="${employee.firstName }" />
+		</div>
+		<div>
+			생일 <input type="date" name="birthDate" value="${employee.birthDate }" />
+		</div>
+		<div>
+			사진 <input type="text" name="photo" value="${employee.photo }" />
+		</div>
+		<div>
+			Notes <textarea name="notes">${employee.notes }</textarea>
+		</div>
+		<div>
+			<input type="submit" value="수정" />
+		</div>
+		</form>
 	</div>
 	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
