@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.Mapper09">
+
+	<select id="sql1" resultType="Integer">
+		select count(*)
+		from Customers
+		where country in (
+			<foreach collection="elems" item="elem" separator=", ">
+				#{elem}
+			</foreach>
+		)
+	</select>
+	
+	<select id="sql2" resultType="com.example.demo.domain.Supplier">
+		select SupplierID as id,
+			   SupplierName as name,
+			   ContactName,
+			   Address,
+			   City,
+			   PostalCode,
+			   Country,
+			   Phone
+		from Suppliers
+		where country in (
+			<foreach collection="elems" item="param" separator=", ">
+				#{param}
+			</foreach>
+		)
+	</select>
+	
+	<select id="sql3" resultType="com.example.demo.domain.Supplier">
+		select SupplierID as id,
+		       SupplierName as name,
+		       ContactName,
+		       Address,
+		       City,
+		       PostalCode,
+		       Country,
+		       Phone
+		from Suppliers
+		<where>
+			<if test="elems != null">
+				Country in (
+					<foreach collection="elems" item="elem" separator=", ">
+						#{elem}
+					</foreach>
+				)
+			</if>
+		</where>
+	</select>
+	
+</mapper>
