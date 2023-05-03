@@ -22,8 +22,11 @@
 			<result column="Price" property="price" />
 		</collection>
 	</resultMap>
-	
+
+
+
 	<resultMap type="com.example.demo.domain.Supplier" id="supplierResultMap">
+
 		<id column="SupplierID" property="id" />
 		<result column="SupplierName" property="name" />
 		<result column="ContactName" property="contactName" />
@@ -32,6 +35,7 @@
 		<result column="PostalCode" property="postalCode" />
 		<result column="Country" property="country" />
 		<result column="Phone" property="phone" />
+
 		<collection property="products" ofType="com.example.demo.domain.Product">
 			<result column="ProductName" property="name" />
 			<result column="Unit" property="unit" />
@@ -40,3 +44,6 @@
 	</resultMap>
 
 </mapper>
+
+
+

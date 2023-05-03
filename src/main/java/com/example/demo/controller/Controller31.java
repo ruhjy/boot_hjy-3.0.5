@@ -43,5 +43,14 @@ public class Controller31 {
 		System.out.println(supplier);
 		supplier.getProducts().forEach(System.out::println);
 	}
+	
+	// 경로 : localhost:8082/sub31/link4?id=1
+	@GetMapping("/link4")
+	public void method4(@RequestParam Integer id) {
+
+		Product product = mapper.sql4(id);
+
+		System.out.println(product);
+	}
 
 }

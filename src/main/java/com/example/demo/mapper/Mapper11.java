@@ -54,5 +54,18 @@ public interface Mapper11 {
 			""")
 	@ResultMap("supplierResultMap")
 	Supplier sql3(Integer id);
+	
+	@Select("""
+			select 
+				p.ProductName name,
+				p.Price,
+				od.Quantity,
+				sum(p.Price * od.Quantity) as sum
+			from Products p
+				join OrderDetails od on p.ProductID = od.ProductID
+			group by p.ProductID
+			having p.ProductID = #{id}
+			""")
+	Product sql4(Integer id);
 
 }

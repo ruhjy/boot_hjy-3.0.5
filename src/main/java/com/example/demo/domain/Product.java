@@ -7,4 +7,7 @@ public class Product {
 	private String name;
 	private String unit;
 	private Double price;
+	
+	private Integer quantity;
+	private Double sum;
 }
