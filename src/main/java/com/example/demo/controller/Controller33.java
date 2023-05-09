@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import org.springframework.security.access.prepost.*;
 import org.springframework.security.core.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
@@ -27,8 +28,9 @@ public class Controller33 {
 		return null;
 	}
 
+	@PreAuthorize("@securityUtil.checkBoardWriter(authentication, #id)")
 	@GetMapping("/customCheck")
-	public void customCheck() {
+	public void customCheck(String id) {
 		System.out.println("customCheck 메서드 실행중...");
 	}
 }
