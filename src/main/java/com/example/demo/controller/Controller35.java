@@ -2,14 +2,11 @@ package com.example.demo.controller;
 
 import java.util.*;
 
-import org.springframework.http.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
 import lombok.*;
-import lombok.extern.slf4j.*;
 
-@Slf4j
 @Controller
 @RequestMapping("/sub35")
 public class Controller35 {
@@ -119,11 +116,23 @@ public class Controller35 {
 		System.out.println("map : " + map);
 		System.out.println("==================");
 		System.out.println("food type : " + map.get("food").getClass().getSimpleName());
-		
+
 		ArrayList<Object> foods = (ArrayList<Object>) map.get("food");
 		System.out.println(foods.get(0));
 		System.out.println(foods.get(1));
 		System.out.println(foods.get(2));
+	}
+
+	// ["pizza", "coke", "coffee"]
+	@PostMapping("/link13")
+	public void method13(@RequestBody List<Object> data) {
+		System.out.println("data : " + data);
+	}
+
+	// [{"name":"강백호", "pos":"파포"}, {"name":"서태웅", "pos":"스포"}] - 객체가 아이템인 배열 보내기
+	@PostMapping("/link14")
+	public void method14(@RequestBody List<Map<String, Object>> data) {
+		System.out.println("data : " + data);
 	}
 
 }
