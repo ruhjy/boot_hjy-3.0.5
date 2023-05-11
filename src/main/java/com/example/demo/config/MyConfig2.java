@@ -5,6 +5,7 @@ import java.util.*;
 import org.springframework.context.annotation.*;
 import org.springframework.security.config.annotation.method.configuration.*;
 import org.springframework.security.config.annotation.web.builders.*;
+import org.springframework.security.core.authority.*;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.security.crypto.bcrypt.*;
 import org.springframework.security.crypto.password.*;
@@ -41,18 +42,26 @@ public class MyConfig2 {
 		String pw1 = encoder.encode("pw1");
 		String pw2 = encoder.encode("pw2");
 
-		System.out.println("pw1:" + pw1);
-		System.out.println("pw2:" + pw2);
+		/*
+		 * System.out.println("pw1:" + pw1);
+		 * System.out.println("pw2:" + pw2);
+		 */
 
 		UserDetails user1 = User.builder()
 				.username("user1")
 				.password(pw1)
-				.authorities(List.of())
+				.authorities(List.of(
+						new SimpleGrantedAuthority("admin"),
+						new SimpleGrantedAuthority("manager")
+						))
 				.build();
 		UserDetails user2 = User.builder()
 				.username("user2")
 				.password(pw2)
-				.authorities(List.of())
+				.authorities(List.of(
+						new SimpleGrantedAuthority("manager"),
+						new SimpleGrantedAuthority("user")
+						))
 				.build();
 
 		return new InMemoryUserDetailsManager(user1, user2);
