@@ -45,13 +45,13 @@
 
 	<hr />
 
-	<input type="text" id="inputName1" placeholder="이름" />
+	<input type="text" id="inputName2" placeholder="이름" />
 	<br />
-	<input type="text" id="inputEmail" placeholder="이메일" />
+	<input type="text" id="inputEmail2" placeholder="이메일" />
 	<br />
-	<input type="text" id="inputScore" placeholder="점수" />
+	<input type="text" id="inputScore2" placeholder="점수" />
 	<br />
-	결혼유무<input type="checkbox" id="inputMarried" />
+	결혼유무<input type="checkbox" id="inputMarried2" />
 	<br />
 	<button id="btn9">전송</button>
 	<br />

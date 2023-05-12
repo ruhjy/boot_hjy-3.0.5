@@ -121,10 +121,13 @@ $("#btn8").click(function() {
 });
 
 $("#btn9").click(function() {
-	const name = $("#inputName1").val();
-	const email = $("#inputEmail").val();
-	const score = $("#inputScore").val();
-	const married = document.getElementById("inputMarried").checked ? true : false;
+	const name = $("#inputName2").val();
+	const email = $("#inputEmail2").val();
+	const score = $("#inputScore2").val();
+	const married = $("#inputMarried2").is(":checked");
+	
+	/*const married = document.querySelector("#inputMarried2").checked;*/
+	/*const married = document.getElementById("inputMarried").checked ? true : false;*/
 	
 	const data = {
 		name: name,
