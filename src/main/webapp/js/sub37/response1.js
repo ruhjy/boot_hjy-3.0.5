@@ -89,9 +89,9 @@ $("#btn22").click(function() {
 		.done(function(data) {
 			const list = $("#productList");
 			list.empty();
-			
+
 			data.forEach(function(product) {
 				list.append(`<li>${product.name}</li>`);
-			})
+			});
 		});
 });
